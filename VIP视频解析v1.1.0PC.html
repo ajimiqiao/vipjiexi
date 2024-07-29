@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>VIP视频解析</title>
+    <style>
+        /* 设置整个网页的背景颜色 */
+        body {
+            justify-content: center;
+            align-items: center;
+            font-size: 15px;
+            height: 100vh;
+            color: fff;
+            background-image: linear-gradient(60deg, #2c3e50, #27ae60, #2980b9, #e74c3c, #8e44ad, #fedb00, #548af7);
+            background-size: 800%;
+            animation: bgmove 60s infinite;
+        }
+        /* 设置搜索框，让其垂直居中 */
+        .search {
+            margin-top: 50px;
+            text-align: center;
+        }
+        .search input {
+            width: 500px;
+            height: 24px;
+            outline: none;
+        }
+        .search button {
+            vertical-align: center;
+        }
+        /* 设置播放器的宽高和背景色 */
+        iframe {
+            display: block;
+            width: 1000px;
+            height: 500px;
+            margin: 30px auto;
+            background-color: rgba(255, 255, 255, 0.3);
+            border-radius: 10px;
+            box-shadow: 0px 2px 10px #111;
+        }
+        button {
+            border: None;
+            width: 100px;
+            height: 40px;
+            border-radius: 5px;
+            font-family:"Micosoft YaHei UI", "微软雅黑";
+            font-weight: bold;
+            box-shadow: 0px 2px 10px #111;
+            background: rgba(255, 255, 255, 0.1);
+            color: #eee;
+            margin-left: 10px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        button:hover {
+            width:160px;
+            border-radius:5px;
+            margin-left: 10px;
+            box-shadow:0px 0px 10px #999, inset 0px 0px 5px #333;
+        }
+        input {
+            background: transparent;
+            outline:none;
+            border: none;
+            border-bottom: 1px solid #000000;
+            color: #eee;
+            font-size:18px;
+            margin-left: 34px;
+            margin-top: 40px;
+        }
+        p {
+            color: #FFFFFF;
+            text-align: center;
+        }
+        @keyframes bgmove{
+                0%{
+                    background-position: 0% 50%;
+                }
+                50%{
+                    background-position: 100% 50%;
+                }
+                100%{
+                    background-position: 0% 50%;
+                }
+            }
+    </style>
+</head>
+    <body>
+
+    <!--搜索栏-->
+        <div class="search">
+            <input id="text" type="text">
+            <button id="btn1" onclick="input_parse2()" type="button">电脑看</button>
+            <button id="btn2" onclick="input_parse3()" type="button">手机看</button>
+            <button id="btn3" onclick="reset()" type="button">清空</button>
+        </div>
+
+        <iframe allowfullscreen allowtransparency frameborder="0" id="player" scrolling="no" src=""></iframe>
+        <p>首先打开某奇艺/某讯视频/某酷，然后选择你喜欢的VIP电影</p>
+        <p>如果是电脑，点击后复制上方链接；</p>
+        <p>如果是手机，以百度为例，点击后点击更多（三个点），点击复制链接</p>
+        <p>在搜索栏输入地址后，选择相对应设备的按钮即可解析，按清空按钮可以清空地址栏</p>
+        <p>注：请如实选择选项，如果在手机上点击了电脑看，可能会有色情，低俗等不良网站，我们不会负责</p>
+        <p>MQ</p>
+
+        <script>
+            const _0x28d9b8 = _0x2725;
+            function _0x2725(_0x14a593, _0x55d166) {
+                const _0x5edc91 = _0x5edc();
+                return _0x2725 = function(_0x2725b7, _0xf3fcf0) {
+                    _0x2725b7 = _0x2725b7 - 0xbb;
+                    let _0x52dcae = _0x5edc91[_0x2725b7];
+                    return _0x52dcae;
+                },
+                _0x2725(_0x14a593, _0x55d166);
+            } (function(_0x31e00c, _0x5acf25) {
+                const _0x208716 = _0x2725,
+                _0x1b0757 = _0x31e00c();
+                while ( !! []) {
+                    try {
+                        const _0x429405 = -parseInt(_0x208716(0xbc)) / 0x1 + -parseInt(_0x208716(0xc1)) / 0x2 + -parseInt(_0x208716(0xcb)) / 0x3 * (parseInt(_0x208716(0xbf)) / 0x4) + parseInt(_0x208716(0xbd)) / 0x5 + parseInt(_0x208716(0xc5)) / 0x6 + -parseInt(_0x208716(0xc3)) / 0x7 * (parseInt(_0x208716(0xbe)) / 0x8) + parseInt(_0x208716(0xc4)) / 0x9;
+                        if (_0x429405 === _0x5acf25) break;
+                        else _0x1b0757['push'](_0x1b0757['shift']());
+                    } catch(_0x720fd7) {
+                        _0x1b0757['push'](_0x1b0757['shift']());
+                    }
+                }
+            } (_0x5edc, 0x1f7f3));
+            let parse_url = _0x28d9b8(0xcd),
+            parse_url2 = 'aHR0cHM6Ly93d3cucGxheW0zdTguY24vamlleGkucGhwP3VybD0=',
+            parse_url3 = _0x28d9b8(0xc9),
+            input = document[_0x28d9b8(0xcc)](_0x28d9b8(0xcf)),
+            player = document['getElementById']('player');
+            function play(_0x5ae5d3) {
+                const _0x1bb1c9 = _0x28d9b8;
+                player[_0x1bb1c9(0xc2)] = _0x5ae5d3;
+            }
+            function _0x5edc() {
+                const _0x9a8ace = ['aHR0cHM6Ly9zdmlwLmJsamlleC5jYy8/dj0=', 'indexOf', 'text', 'substr', 'keyCode', '176039LCjagB', '291385usxdWD', '1592kcHAar', '3188qDTIaf', 'length', '462336agzEkq', 'src', '1519ziyFVB', '5529447dIQdvF', '329898GFpqxY', 'preventDefault', 'value', 'keyup', 'aHR0cHM6Ly9pbTE5MDcudG9wLz9qeD0=', 'search', '558bjZbnx', 'getElementById'];
+                _0x5edc = function() {
+                    return _0x9a8ace;
+                };
+                return _0x5edc();
+            }
+            function input_parse2() {
+                const _0x5649bb = _0x28d9b8;
+                let _0x47040c = atob(parse_url2) + input[_0x5649bb(0xc7)];
+                play(_0x47040c);
+            }
+            function input_parse3() {
+                const _0x4dd4b4 = _0x28d9b8;
+                let _0x19c0b2 = atob(parse_url3) + input[_0x4dd4b4(0xc7)];
+                play(_0x19c0b2);
+            }
+            function reset() {
+                input['value'] = '';
+            }
+            input['addEventListener'](_0x28d9b8(0xc8),
+            function(_0x32b858) {
+                const _0x32cd55 = _0x28d9b8;
+                _0x32b858[_0x32cd55(0xc6)]();
+                if (_0x32b858['keyCode'] === 0xd) input_parse();
+                else _0x32b858[_0x32cd55(0xbb)] === 0x1b && reset();
+            });
+            let tmp = location[_0x28d9b8(0xca)],
+            href = tmp[_0x28d9b8(0xd0)](tmp[_0x28d9b8(0xce)]('?')),
+            reg = 'url=([^&]*)',
+            url = href['match'](reg)[0x0];
+            url !== null && url[_0x28d9b8(0xc0)] > 0x4 && (url = url[_0x28d9b8(0xd0)](url[_0x28d9b8(0xce)]('url=') + 0x4), location_parse(url));
+            function location_parse(_0x1acf24) {
+                let _0x54df90 = parse_url + _0x1acf24;
+                play(_0x54df90),
+                input['value'] = _0x1acf24;
+            }
+        </script>
+    </body>
+</html>
+
+
